@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pitti Engineering Limited | High-Precision Electrical Laminations & Rotating Equipment</title>
+  <link rel="icon" type="image/png" href="assets/favicon_pitti.png" />
+  
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="blueprint-grid">
+
+  <!-- Mechanical Custom Crosshair Cursor -->
+  <div id="customCursor" class="custom-cursor"></div>
+  <div id="cursorTrail" class="cursor-trail"></div>
+
+  <!-- Telemetry HUD Ticker Bar -->
+  <header class="hud-telemetry-bar">
+    <div class="hud-pill">
+      <span class="hud-dot"></span>
+      <span>SYS STATUS: <strong>NOMINAL [50.00 Hz]</strong></span>
+    </div>
+    <div class="hud-pill">
+      <span>SHEET METAL CAP: <strong>90,000 MT/YR</strong></span>
+    </div>
+    <div class="hud-pill">
+      <span>MACHINING: <strong>691,200 HRS/YR</strong></span>
+    </div>
+    <div class="hud-pill">
+      <span>CASTINGS: <strong>18,600 MT/YR</strong></span>
+    </div>
+    <div class="hud-pill">
+      <span>MAX DIA: <strong>Ø 1300 MM</strong></span>
+    </div>
+    <div class="hud-pill">
+      <span>BSE: <strong>513519</strong> | NSE: <strong>PITTIENG</strong></span>
+    </div>
+    <div class="hud-pill">
+      <span id="hudClock">IST: 11:42:00</span>
+    </div>
+    <div class="hud-pill">
+      <span id="hudCoords">X:0512 Y:0340</span>
+    </div>
+  </header>
+
+  <!-- Mechanical Navbar -->
+  <nav class="mech-navbar">
+    <a href="#home" class="brand-container">
+      <div class="brand-emblem">
+        <svg class="brand-gear-icon" viewBox="0 0 24 24" fill="none" stroke="#d93b20" stroke-width="2">
+          <circle cx="12" cy="12" r="3" />
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </div>
+      <div class="brand-text-block">
+        <span class="brand-title">PITTI <span>ENGINEERING</span></span>
+        <span class="brand-subtitle">PRECISION ROTATING EQUIPMENT • EST. 1983</span>
+      </div>
+    </a>
+
+    <ul class="mech-nav-links">
+      <li class="mech-nav-item"><a href="#overview">Overview</a></li>
+      <li class="mech-nav-item"><a href="#assembly-line">Assembly Line</a></li>
+      <li class="mech-nav-item"><a href="#products">Products</a></li>
+      <li class="mech-nav-item"><a href="#manufacturing">Facilities</a></li>
+      <li class="mech-nav-item"><a href="#subsidiaries">Subsidiaries</a></li>
+      <li class="mech-nav-item"><a href="#applications">Applications</a></li>
+      <li class="mech-nav-item"><a href="#rfq">CAD Configurator</a></li>
+      <li class="mech-nav-item"><a href="#governance">Leadership</a></li>
+      <li class="mech-nav-item"><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <!-- Web Audio Sound Engine Switch -->
+      <button id="audioToggleBtn" class="audio-toggle-btn" title="Toggle Synthesized Mechanical Audio FX">
+        <span class="hud-dot orange"></span>
+        <span id="audioStatusText">AUDIO: MUTED</span>
+        <div class="audio-eq-bars" id="audioEqBars">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+
+      <a href="#rfq" class="cta-rfq-btn">
+        <span>G-CODE SPEC</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       HERO SECTION - Video Backdrop & 3D Interactive Mechanical Stator/Rotor
+       ========================================================================== -->
+  <section id="home" class="hero-mech-container">
+    <div class="hero-video-backdrop">
+      <video autoplay loop muted playsinline poster="assets/gridimg01.png">
+        <source src="assets/videoBanner.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <!-- Left: High Impact Technical Hero Text -->
+      <div class="hero-text-side">
+        <div class="hero-kicker">
+          <span class="hud-dot orange"></span>
+          <span>FOUR DECADES OF PRECISION ENGINEERING EXCELLENCE</span>
+        </div>
+
+        <h1 class="hero-title">
+          SIMPLIFYING<br />
+          <span class="highlight-gradient">ENGINEERING</span><br />
+          SUPPLY CHAIN
+        </h1>
+
+        <div class="hero-tagline">
+          INDIA’S MARKET LEADER IN ROTATING ELECTRICAL EQUIPMENT SOLUTIONS
+        </div>
+
+        <p class="hero-desc">
+          Established in 1983, Pitti Engineering Limited is India’s premier manufacturer of high-precision electrical steel laminations, motor cores, ready-to-wind subassemblies, die-cast rotors, and fully finished machined castings powering locomotives, electric vehicles, wind turbines, and industrial machinery worldwide.
+        </p>
+
+        <!-- Mechanical Specs Row -->
+        <div class="hero-specs-grid">
+          <div class="spec-cell">
+            <div class="spec-val">90<span class="unit">k MT</span></div>
+            <div class="spec-lbl">Sheet Metal Annual Cap</div>
+          </div>
+          <div class="spec-cell">
+            <div class="spec-val">1,300<span class="unit">mm</span></div>
+            <div class="spec-lbl">Max Lamination Dia</div>
+          </div>
+          <div class="spec-cell">
+            <div class="spec-val">10<span class="unit">Ton</span></div>
+            <div class="spec-lbl">Max Stator Assembly</div>
+          </div>
+          <div class="spec-cell">
+            <div class="spec-val">±0.005<span class="unit">mm</span></div>
+            <div class="spec-lbl">Precision Tolerance</div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px;">
+          <a href="#assembly-line" class="cta-rfq-btn" style="padding: 12px 24px;">
+            <span>EXPLORE ASSEMBLY LINE</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#products" class="cad-tool-btn" style="padding: 12px 20px; text-decoration: none;">
+            VIEW 7 PRODUCT CATS
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Interactive 3D CAD Motor Core Visualizer -->
+      <div class="hero-visualizer-side">
+        <div class="cad-visualizer-box">
+          <canvas id="cadCanvas3d" class="cad-canvas-3d"></canvas>
+          
+          <!-- CAD HUD Overlays -->
+          <div class="cad-overlay-hud">
+            <div class="hud-corner-tl">
+              <span>CAD STATOR-ROTOR ASSEMBLY v4.8</span>
+              <span>POLAR COORD: 3D INTERACTIVE ORBIT</span>
+              <span>DRAG TO ROTATE • WHEEL TO ZOOM</span>
+            </div>
+            <div class="hud-corner-tr">
+              <span>FREQ: <strong id="freqDisplayVal">48.0</strong> Hz</span><br />
+              <span>SPEED: <strong id="rpmDisplayVal">1440</strong> RPM</span><br />
+              <span>TORQUE: <strong id="torqueDisplayVal">124.6</strong> Nm</span>
+            </div>
+          </div>
+
+          <!-- Crosshair Part Hover Tag -->
+          <div id="cadPartInspector" class="cad-part-inspector">
+            <span class="part-tag" id="cadPartTag">HOVER OR DRAG COMPONENT</span>
+          </div>
+        </div>
+
+        <!-- CAD Inspection Controls Tray -->
+        <div class="cad-controls-tray">
+          <div class="cad-btn-group">
+            <button class="cad-tool-btn active" data-mode="solid">SOLID MODEL</button>
+            <button class="cad-tool-btn" data-mode="exploded">EXPLODE VIEW</button>
+            <button class="cad-tool-btn" data-mode="flux">MAG FLUX</button>
+            <button class="cad-tool-btn" data-mode="wireframe">WIREFRAME</button>
+            <button class="cad-tool-btn" data-mode="thermal">THERMAL</button>
+          </div>
+
+          <div class="sliders-row-dual">
+            <div class="rpm-slider-control">
+              <span>MOTOR RPM:</span>
+              <input type="range" id="rpmSlider" min="0" max="6000" value="1440" step="60" />
+            </div>
+
+            <div class="rpm-slider-control">
+              <span>EXPLODE:</span>
+              <input type="range" id="explodeSlider" min="0" max="100" value="0" step="1" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Kinematic Gear Divider -->
+  <div class="gear-divider-strip">
+    <canvas id="gearDividerCanvas" class="gear-divider-canvas"></canvas>
+    <div class="gear-divider-text">PRECISION INVOLUTE GEARING • KINEMATIC DRIVE TRANSMISSION</div>
+  </div>
+
+  <!-- Global Marquee Clients Strip -->
+  <section class="clients-ticker-section">
+    <div class="ticker-label-tag">TRUSTED SUPPLIER TO GLOBAL TIER-1 OEMs:</div>
+    <div class="clients-marquee-track">
+      <div class="marquee-content-row">
+        <span class="client-badge">SIEMENS <em>(22+ Years)</em></span>
+        <span class="client-badge">ABB <em>(17+ Years)</em></span>
+        <span class="client-badge">GE WABTEC</span>
+        <span class="client-badge">CUMMINS <em>(17+ Years)</em></span>
+        <span class="client-badge">CATERPILLAR</span>
+        <span class="client-badge">NIDEC CORPORATION</span>
+        <span class="client-badge">MARATHON ELECTRIC</span>
+        <span class="client-badge">ALSTOM</span>
+        <span class="client-badge">VOITH TURBO</span>
+        <span class="client-badge">SCHNEIDER ELECTRIC</span>
+        <!-- Duplicate for loop -->
+        <span class="client-badge">SIEMENS <em>(22+ Years)</em></span>
+        <span class="client-badge">ABB <em>(17+ Years)</em></span>
+        <span class="client-badge">GE WABTEC</span>
+        <span class="client-badge">CUMMINS <em>(17+ Years)</em></span>
+        <span class="client-badge">CATERPILLAR</span>
+        <span class="client-badge">NIDEC CORPORATION</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       OVERVIEW & CORPORATE POSITIONING
+       ========================================================================== -->
+  <section id="overview" class="section-mech">
+    <div class="section-head-mech">
+      <div class="section-tag">COMPANY OVERVIEW</div>
+      <h2 class="section-title">ENGINEERING EXCELLENCE SINCE 1983</h2>
+      <p class="section-subtitle">
+        With a legacy spanning over four decades, Pitti Engineering Limited is a trusted leader in precision components for rotating electrical equipment. From electrical steel laminations for specialized motors to comprehensive turnkey subassemblies, we power critical infrastructure globally.
+      </p>
+    </div>
+
+    <div class="hero-specs-grid" style="max-width: 100%; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 50px;">
+      <div class="spec-cell">
+        <div class="spec-val">₹1,952.91<span class="unit">Cr</span></div>
+        <div class="spec-lbl">Consolidated Revenue (FY26)</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-val">₹3,942<span class="unit">Cr+</span></div>
+        <div class="spec-lbl">Market Capitalisation</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-val">691,200<span class="unit">Hrs</span></div>
+        <div class="spec-lbl">Machining Capacity Per Annum</div>
+      </div>
+      <div class="spec-cell">
+        <div class="spec-val">18,600<span class="unit">MT</span></div>
+        <div class="spec-lbl">Foundry Casting Capacity</div>
+      </div>
+    </div>
+
+    <!-- Core Operations List -->
+    <div class="competencies-card-wrap">
+      <div class="card-tech-header" style="background: rgba(0, 240, 255, 0.08);">
+        <span>SYSTEM MATRIX // INTEGRATED CAPABILITIES</span>
+        <span>END-TO-END SUPPLY CHAIN</span>
+      </div>
+      <div style="padding: 24px;">
+        <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin-bottom: 12px;">
+          INTEGRATED END-TO-END MANUFACTURING COMPETENCIES
+        </h3>
+        <p style="color: var(--steel-300); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px;">
+          Over the years, we have continually diversified and enhanced our engineering capabilities. Today, our advanced operations include:
+        </p>
+        <div class="competencies-grid">
+          <div class="spec-badge">✦ Machined Castings & Foundry Operations</div>
+          <div class="spec-badge">✦ Stator & Rotor Core Building & Skewing</div>
+          <div class="spec-badge">✦ Shaft Manufacturing & Dynamic Balancing</div>
+          <div class="spec-badge">✦ Precision Air Gap Turning & Grinding</div>
+          <div class="spec-badge">✦ High-Speed Laser Cutting & Cleat Forming</div>
+          <div class="spec-badge">✦ Spot, TIG, MIG & Specialized Laser Welding</div>
+          <div class="spec-badge">✦ Controlled Heat Treatment & Decarb Annealing</div>
+          <div class="spec-badge">✦ CNC Multi-Axis Milling & Horizontal Boring</div>
+          <div class="spec-badge">✦ High-Precision Progressive Press Tooling</div>
+          <div class="spec-badge">✦ Heavy Machine Fabrication & Fettling</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE "THE PRECISION ASSEMBLY LINE" (Manufacturing Conveyor)
+       ========================================================================== -->
+  <section id="assembly-line" class="section-mech">
+    <div class="section-head-mech">
+      <div class="section-tag">INTERACTIVE FACTORY SIMULATION</div>
+      <h2 class="section-title">THE PRECISION ASSEMBLY LINE</h2>
+      <p class="section-subtitle">
+        Step through Pitti’s 8-stage automated manufacturing pipeline. Watch live mechanical tooling simulations from progressive die stamping to robotic metrology.
+      </p>
+    </div>
+
+    <div class="assembly-conveyor-dashboard">
+      <!-- Top Station Selector Tabs -->
+      <div class="conveyor-station-tabs" id="conveyorTabs">
+        <button class="station-tab active" data-station="0">
+          <span class="st-num">01</span>
+          <span class="st-name">TOOL DESIGN & EDM</span>
+        </button>
+        <button class="station-tab" data-station="1">
+          <span class="st-num">02</span>
+          <span class="st-name">HIGH-SPEED PRESSING</span>
+        </button>
+        <button class="station-tab" data-station="2">
+          <span class="st-num">03</span>
+          <span class="st-name">CNC LASER CUTTING</span>
+        </button>
+        <button class="station-tab" data-station="3">
+          <span class="st-num">04</span>
+          <span class="st-name">CORE BUILDING & CLEAT</span>
+        </button>
+        <button class="station-tab" data-station="4">
+          <span class="st-num">05</span>
+          <span class="st-name">ROTOR DIE CASTING</span>
+        </button>
+        <button class="station-tab" data-station="5">
+          <span class="st-num">06</span>
+          <span class="st-name">5-AXIS CNC MACHINING</span>
+        </button>
+        <button class="station-tab" data-station="6">
+          <span class="st-num">07</span>
+          <span class="st-name">DECARB ANNEALING</span>
+        </button>
+        <button class="station-tab" data-station="7">
+          <span class="st-num">08</span>
+          <span class="st-name">ZEISS CMM METROLOGY</span>
+        </button>
+      </div>
+
+      <!-- Main Animated Machine Stage -->
+      <div class="conveyor-stage-grid">
+        <!-- Left: Interactive Canvas Machine Simulation -->
+        <div class="conveyor-canvas-box">
+          <canvas id="assemblyLineCanvas" class="assembly-canvas"></canvas>
+          <div class="stage-hud-overlay">
+            <div class="hud-corner-tl">
+              <span id="stageCodeDisplay">STATION 01 // EDM SPARK EROSION</span>
+              <span id="stageCycleDisplay">LINE SPEED: 400 STROKES/MIN</span>
+            </div>
+            <div class="hud-corner-tr">
+              <span id="stageToolDisplay">TOOL: TUNGSTEN CARBIDE DIE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Technical Station Dossier -->
+        <div class="conveyor-dossier-box">
+          <div class="card-tech-header">
+            <span id="stationDossierNum">STATION SPECIFICATION // 01</span>
+            <span class="hud-dot orange"></span>
+          </div>
+          <div class="dossier-inner">
+            <h3 id="stationTitle" class="dossier-title">In-House Tool Design & Wire EDM</h3>
+            <p id="stationDesc" class="dossier-desc">
+              Pitti operates an ultra-modern in-house toolroom equipped with high-precision sub-micron CNC Wire Cut EDM and optical profile grinders. We design and manufacture progressive carbide stamping dies, compound tooling, and specialized jigs ensuring micro-tolerance accuracy across millions of cycles.
+            </p>
+            
+            <div class="station-metrics-grid">
+              <div class="station-metric-cell">
+                <span class="metric-val" id="metric1Val">± 0.002 mm</span>
+                <span class="metric-lbl" id="metric1Lbl">Tool Die Precision</span>
+              </div>
+              <div class="station-metric-cell">
+                <span class="metric-val" id="metric2Val">Sub-Micron</span>
+                <span class="metric-lbl" id="metric2Lbl">Wire Cut Accuracy</span>
+              </div>
+              <div class="station-metric-cell">
+                <span class="metric-val" id="metric3Val">40+ Years</span>
+                <span class="metric-lbl" id="metric3Lbl">Tooling Expertise</span>
+              </div>
+            </div>
+
+            <div class="station-controls-bar">
+              <button id="prevStationBtn" class="cad-tool-btn">◀ PREV STATION</button>
+              <button id="autoRunConveyorBtn" class="cta-rfq-btn" style="padding: 8px 18px;">
+                <span>AUTO-CYCLE LINE</span>
+              </button>
+              <button id="nextStationBtn" class="cad-tool-btn">NEXT STATION ▶</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PRODUCTS MATRIX - THE 7 PRECISION ENGINEERING CATEGORIES
+       ========================================================================== -->
+  <section id="products" class="section-mech">
+    <div class="section-head-mech">
+      <div class="section-tag">PRODUCT PORTFOLIO</div>
+      <h2 class="section-title">PRECISION-ENGINEERED COMPONENT SOLUTIONS</h2>
+      <p class="section-subtitle">
+        Engineered to meet the tight tolerances, extreme scale, and relentless reliability demands of global rotating equipment manufacturers.
+      </p>
+    </div>
+
+    <div class="products-grid-mech">
+      <!-- Product 1: Electrical Steel Laminations -->
+      <div class="product-cad-card">
+        <div class="card-tech-header">
+          <span>CAT-01 // STATOR & ROTOR</span>
+          <span>UP TO Ø 1300 MM</span>
+        </div>
+        <div class="card-img-wrap">
+          <div class="card-reticle-overlay"></div>
+          <img src="assets/gridimg01.png" alt="Electrical Steel Laminations" />
+        </div>
+        <div class="card-body-mech">
+          <h3 class="product-title">Electrical Steel Laminations</h3>
+          <p class="product-desc">
+            High-precision stator and rotor laminations manufactured from premium CRNGO and CRGO electrical steel. Engineered for energy-efficient motors, generators, and alternators with exceptional slot fidelity, sub-0.02mm burr height, and optimal stacking efficiency.
+          </p>
+          <div class="product-spec-pills">
+            <span class="spec-badge highlight">Max Dia: 1300 mm</span>
+            <span class="spec-badge">Sub-0.02mm Burr</span>
+            <span class="spec-badge">CRNGO / CRGO</span>
+          </div>
+          <button class="inspect-spec-btn" data-prod="laminations">INSPECT CAD SPEC ↗</button>
+        </div>
+      </div>
+
+      <!-- Product 2: Subassemblies -->
+      <div class="product-cad-card">
+        <div class="card-tech-header">
+          <span>CAT-02 // VALUE ADDED</span>
+          <span>READY-TO-WIND</span>
+        </div>
+        <div class="card-img-wrap">
+          <div class="card-reticle-overlay"></div>
+          <img src="assets/gridimg04.png" alt="Subassemblies" />
+        </div>
+        <div class="card-body-mech">
+          <h3 class="product-title">Subassemblies</h3>
+          <p class="product-desc">
+            Integrated multi-step manufacturing delivering performance-critical systems: cleat-welded cores, shaft insertion, precision ground journals, and dynamic balancing. Drastically reduces customer lead times and simplifies global supply chains.
+          </p>
+          <div class="product-spec-pills">
+            <span class="spec-badge highlight">Ready-To-Wind</span>
+            <span class="spec-badge">Shaft Assembled</span>
+            <span class="spec-badge">Zero Air Gap Distortion</span>
+          </div>
+          <button class="inspect-spec-btn" data-prod="subassemblies">INSPECT CAD SPEC ↗</button>
+        </div>
+      </div>
+
+      <!-- Product 3: Motor Cores -->
+      <div class="product-cad-card">
+        <div class="card-tech-header">
+          <span>CAT-03 // HEAVY ASSEMBLIES</span>
+          <span>UP TO 10 TONS</span>
+        </div>
+        <div class="card-img-wrap">
+          <div class="card-reticle-overlay"></div>
+          <img src="assets/gridimg02.png" alt="Motor Cores" />
+        </div>
+        <div class="card-body-mech">
+          <h3 class="product-title">Motor Cores</h3>
+          <p class="product-desc">
+            Fully built stator core assemblies up to 1800 mm in stack height and 10 metric tons in weight. Assembled using precision hydraulic clamping, welding, and cleating techniques suitable for high-voltage industrial drives and railway traction equipment.
+          </p>
+          <div class="product-spec-pills">
+            <span class="spec-badge highlight">Height: Up to 1800 mm</span>
+            <span class="spec-badge highlight">Weight: Up to 10 MT</span>
+            <span class="spec-badge">Hydraulic Stacking</span>
+          </div>
+          <button class="inspect-spec-btn" data-prod="motorcores">INSPECT CAD SPEC ↗</button>
+        </div>
+      </div>
+
+      <!-- Product 4: Die-Cast Rotors -->
+      <div class="product-cad-card">
+        <div class="card-tech-header">
+          <span>CAT-04 // ROTOR SYSTEMS</span>
+          <span>UP TO 180 KG</span>
+        </div>
+        <div class="card-img-wrap">
+          <div class="card-reticle-overlay"></div>
+          <img src="assets/gridimg06.png" alt="Die-Cast Rotors" />
+        </div>
+        <div class="card-body-mech">
+          <h3 class="product-title">Die-Cast Rotors</h3>
+          <p class="product-desc">
+            High-density aluminum and alloy die-cast rotor assemblies up to 180 kg in weight and 1500 mm in height. Engineered with skewed conductor bars for whisper-quiet motor operation, low harmonic loss, and superior starting torque profiles.
+          </p>
+          <div class="product-spec-pills">
+            <span class="spec-badge highlight">Weight: Up to 180 kg</span>
+            <span class="spec-badge">Height: Up to 1500 mm</span>
+            <span class="spec-badge">Skew Angle Precision</span>
+          </div>
+          <button class="inspect-spec-btn" data-prod="rotors">INSPECT CAD SPEC ↗</button>
+        </div>
+      </div>
+
+      <!-- Product 5: Precision Castings -->
+      <div class="product-cad-card">
+        <div class="card-tech-header">
+          <span>CAT-05 // FOUNDRY INTEGRATION</span>
+          <span>18,600 MT / YR</span>
+        </div>
+        <div class="card-img-wrap">
+          <div class="card-reticle-overlay"></div>
+          <img src="assets/gridimg03.png" alt="Precision Castings" />
+        </div>
+        <div class="card-body-mech">
+          <h3 class="product-title">Machined Castings</h3>
+          <p class="product-desc">
+            High-grade grey iron and ductile (SG) iron castings produced at Dakshin Foundry and Macharam foundry units. Fully machined with CNC horizontal and vertical machining centers for high-strength, dimensionally flawless end shields and motor frames.
+          </p>
+          <div class="product-spec-pills">
+            <span class="spec-badge highlight">Ductile & Grey Iron</span>
+            <span class="spec-badge">Multi-Axis CNC Milled</span>
+            <span class="spec-badge">Heavy Duty Applications</span>
+          </div>
+          <button class="inspect-spec-btn" data-prod="castings">INSPECT CAD SPEC ↗</button>
+        </div>
+      </div>
+
+      <!-- Product 6: High-Precision Press Tools -->
+      <div class="product-cad-card">
+        <div class="card-tech-header">
+          <span>CAT-06 // TOOLROOM EXCELLENCE</span>
+          <span>TUNGSTEN CARBIDE</span>
+        </div>
+        <div class="card-img-wrap">
+          <div class="card-reticle-overlay"></div>
+          <img src="assets/gridimg07.png" alt="High-Precision Press Tools" />
+        </div>
+        <div class="card-body-mech">
+          <h3 class="product-title">High-Precision Press Tools</h3>
+          <p class="product-desc">
+            In-house custom die and tooling design utilizing sub-micron wire EDM and optical profile grinding. We build high-speed progressive dies, compound stamping dies, and gang punching tooling ensuring millions of high-precision strokes.
+          </p>
+          <div class="product-spec-pills">
+            <span class="spec-badge highlight">Progressive Carbide Dies</span>
+            <span class="spec-badge">Sub-Micron EDM</span>
+            <span class="spec-badge">In-House Toolroom</span>
+          </div>
+          <button class="inspect-spec-btn" data-prod="tools">INSPECT CAD SPEC ↗</button>
+        </div>
+      </div>
+
+      <!-- Product 7: Machined Components & Forged Shafts -->
+      <div class="product-cad-card">
+        <div class="card-tech-header">
+          <span>CAT-07 // CNC MACHINING</span>
+          <span>691,200 HRS / YR</span>
+        </div>
+        <div class="card-img-wrap">
+          <div class="card-reticle-overlay"></div>
+          <img src="assets/gridimg05.png" alt="Machined Components & Shafts" />
+        </div>
+        <div class="card-body-mech">
+          <h3 class="product-title">Machined Components & Forged Shafts</h3>
+          <p class="product-desc">
+            Heavy-duty forged shafts, precision ground journals, and fabricated motor frames supported by multi-axis CNC lathes, VMCs, HMCs, and specialized air gap turning. Delivers superior mechanical strength and structural integrity.
+          </p>
+          <div class="product-spec-pills">
+            <span class="spec-badge highlight">Forged Alloy Shafts</span>
+            <span class="spec-badge">Air Gap Turning</span>
+            <span class="spec-badge">Dynamic Balancing</span>
+          </div>
+          <button class="inspect-spec-btn" data-prod="shafts">INSPECT CAD SPEC ↗</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Blueprint Modal (Sliding CAD Spec Inspector) -->
+  <div id="blueprintModal" class="blueprint-modal">
+    <div class="blueprint-modal-backdrop" id="modalBackdrop"></div>
+    <div class="blueprint-modal-content">
+      <div class="modal-tech-bar">
+        <span id="modalHeaderCode">CAD SPECIFICATION SHEET // DWG-8301</span>
+        <button id="closeModalBtn" class="modal-close-btn">✕ CLOSE [ESC]</button>
+      </div>
+      <div class="modal-body-scroll">
+        <div class="modal-grid-layout">
+          <div class="modal-left-cad">
+            <div class="modal-cad-viewport">
+              <svg id="modalCadSvg" width="100%" height="280" viewBox="0 0 320 280"></svg>
+            </div>
+            <div class="cad-legend-row">
+              <span>SCALE: 1:10</span>
+              <span>PROJECTION: FIRST ANGLE</span>
+              <span>UNITS: MM</span>
+            </div>
+          </div>
+          <div class="modal-right-specs">
+            <h2 id="modalProductTitle" class="modal-title">Electrical Steel Laminations</h2>
+            <div id="modalProductTagline" class="modal-tagline">High-Precision Stator & Rotor Core Laminations</div>
+            <p id="modalProductDescription" class="modal-desc">
+              Precision stamped laminations up to 1300 mm diameter. Manufactured using automated stamping presses, multi-axis laser cutting, and progressive tungsten carbide tooling.
+            </p>
+            
+            <table class="modal-specs-table">
+              <thead>
+                <tr>
+                  <th>PARAMETER</th>
+                  <th>SPECIFICATION LIMIT</th>
+                </tr>
+              </thead>
+              <tbody id="modalSpecsTableBody">
+                <!-- Injected via JS -->
+              </tbody>
+            </table>
+
+            <div style="margin-top: 20px; display: flex; gap: 12px;">
+              <a href="#rfq" class="cta-rfq-btn" id="modalRfqJumpBtn">
+                <span>REQUEST RFQ FOR THIS PART</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MANUFACTURING INFRASTRUCTURE & 6 STRATEGIC HUBS
+       ========================================================================== -->
+  <section id="manufacturing" class="section-mech">
+    <div class="section-head-mech">
+      <div class="section-tag">STRATEGIC INFRASTRUCTURE</div>
+      <h2 class="section-title">6 STATE-OF-THE-ART MANUFACTURING HUBS</h2>
+      <p class="section-subtitle">
+        Strategically located across Telangana, Maharashtra, and Karnataka to deliver integrated supply chain advantages and unmatched geographic responsiveness.
+      </p>
+    </div>
+
+    <div class="facilities-layout-mech">
+      <!-- Left: Interactive Schematic GIS Radar -->
+      <div class="map-radar-container">
+        <canvas id="indiaRadarCanvas" class="india-radar-canvas"></canvas>
+      </div>
+
+      <!-- Right: The 6 Facilities Cards Stack -->
+      <div class="facilities-cards-stack">
+        <!-- Plant 1: Kothur -->
+        <div class="facility-card-item active" data-plant="kothur">
+          <div class="fac-head">
+            <div class="fac-name">Kothur Plant (Telangana)</div>
+            <div class="fac-badge">LAMINATIONS & MACHINING</div>
+          </div>
+          <div class="fac-desc">Manufacture of laminations, low to high value assembling, and large level machined components.</div>
+          <div class="fac-address">Survey No.1837 & 1838, Jingoniguda Road, Nandigaon, Kothur, Rangareddy, Telangana - 509228</div>
+        </div>
+
+        <!-- Plant 2: Nandigaon -->
+        <div class="facility-card-item" data-plant="nandigaon">
+          <div class="fac-head">
+            <div class="fac-name">Nandigaon Plant (Telangana)</div>
+            <div class="fac-badge">FABRICATION & FETTLING</div>
+          </div>
+          <div class="fac-desc">High-speed fabrication, press stamping, and fettling operations.</div>
+          <div class="fac-address">Survey No.1603 & 1607, Nandigaon village, Kothur, Rangareddy, Telangana - 509228</div>
+        </div>
+
+        <!-- Plant 3: Macharam Foundry -->
+        <div class="facility-card-item" data-plant="macharam">
+          <div class="fac-head">
+            <div class="fac-name">Macharam Foundry (Telangana)</div>
+            <div class="fac-badge">FOUNDRY CASTING</div>
+          </div>
+          <div class="fac-desc">Manufacture of casting and heavy foundry operations supporting rotating motor frames.</div>
+          <div class="fac-address">Survey No.53, Balanagar Mandal, Macharam, Mahabubnagar, Telangana - 509202</div>
+        </div>
+
+        <!-- Plant 4: Chhatrapati Sambhajinagar (Aurangabad) -->
+        <div class="facility-card-item" data-plant="aurangabad">
+          <div class="fac-head">
+            <div class="fac-name">Chhatrapati Sambhajinagar Mega Plant (Maharashtra)</div>
+            <div class="fac-badge">MEGA FACTORY • 1MW SOLAR</div>
+          </div>
+          <div class="fac-desc">State-of-the-art mega plant: laminations, high-value assembly, large-scale CNC machining, close to major industrial corridors.</div>
+          <div class="fac-address">Gut No.194, 195, 183, 191, 182, Limbe Jalgaon, Gangapur, Chhatrapati Sambhajinagar - 431133</div>
+        </div>
+
+        <!-- Plant 5: Tumakuru (Pitti Industries) -->
+        <div class="facility-card-item" data-plant="tumakuru">
+          <div class="fac-head">
+            <div class="fac-name">Tumakuru Plant (Karnataka) — Pitti Industries Pvt Ltd</div>
+            <div class="fac-badge">SUBSIDIARY • MOTORS & EV</div>
+          </div>
+          <div class="fac-desc">Manufacture of laminations, low and medium value assembling for motors, pumps, and electric vehicles.</div>
+          <div class="fac-address">Plot No. 7 & 8, KIADB Industrial Area, Vasanthanarasapura II Phase, Tumakuru, Karnataka - 572128</div>
+        </div>
+
+        <!-- Plant 6: Hoskote (Dakshin Foundry) -->
+        <div class="facility-card-item" data-plant="hoskote">
+          <div class="fac-head">
+            <div class="fac-name">Hoskote Plant (Karnataka) — Dakshin Foundry Pvt Ltd</div>
+            <div class="fac-badge">SUBSIDIARY • FOUNDRY CASTINGS</div>
+          </div>
+          <div class="fac-desc">Wholly owned foundry subsidiary manufacturing high-grade engineered castings.</div>
+          <div class="fac-address">Plot No 28-B to H, KIADB Industrial Area, Hosakote, Bengaluru, Karnataka - 562114</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WHOLLY OWNED SUBSIDIARIES SPOTLIGHT
+       ========================================================================== -->
+  <section id="subsidiaries" class="section-mech">
+    <div class="section-head-mech">
+      <div class="section-tag">STRATEGIC INTEGRATION</div>
+      <h2 class="section-title">WHOLLY OWNED SUBSIDIARIES</h2>
+      <p class="section-subtitle">
+        We have two wholly owned subsidiaries situated in Karnataka, enhancing regional penetration and supporting our strategic vertical integration.
+      </p>
+    </div>
+
+    <div class="subsidiaries-grid-wrap">
+      <!-- Subsidiary 1 -->
+      <div class="subsidiary-card">
+        <div class="card-tech-header">
+          <span>SUBSIDIARY 01 // TUMAKURU, KARNATAKA</span>
+          <span class="spec-badge highlight">100% OWNED</span>
+        </div>
+        <div class="subsidiary-img-holder">
+          <img src="assets/Subsidiary_PittiInd.png" alt="Pitti Industries Private Limited" />
+        </div>
+        <div class="subsidiary-body">
+          <h3 class="subsidiary-title">Pitti Industries Private Limited</h3>
+          <p class="subsidiary-desc">
+            Formerly known as Bagadia Chaitra Industries Private Limited, acquired in 2024. Engaged in high-speed manufacturing of laminations and die-cast components for motors, alternators, pumps, and electric vehicles, significantly expanding our southern regional presence.
+          </p>
+          <div class="subsidiary-pills">
+            <span class="spec-badge">Location: Tumakuru</span>
+            <span class="spec-badge highlight">EV & Pump Focus</span>
+            <span class="spec-badge">Die-Cast Rotors</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subsidiary 2 -->
+      <div class="subsidiary-card">
+        <div class="card-tech-header">
+          <span>SUBSIDIARY 02 // HOSKOTE, BENGALURU</span>
+          <span class="spec-badge highlight">100% OWNED</span>
+        </div>
+        <div class="subsidiary-img-holder">
+          <img src="assets/Subsidiary_Dakshin.png" alt="Dakshin Foundry Private Limited" />
+        </div>
+        <div class="subsidiary-body">
+          <h3 class="subsidiary-title">Dakshin Foundry Private Limited</h3>
+          <p class="subsidiary-desc">
+            High-grade foundry manufacturing ductile (SG) iron and grey iron castings. Directly integrates our supply chain by feeding precision raw castings into our machining facilities for motor frames, end shields, and rotating equipment housings.
+          </p>
+          <div class="subsidiary-pills">
+            <span class="spec-badge">Location: Hoskote</span>
+            <span class="spec-badge highlight">Ductile & Grey Iron</span>
+            <span class="spec-badge">Foundry Integration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       APPLICATIONS MATRIX - DIVERSE INDUSTRIAL SECTORS
+       ========================================================================== -->
+  <section id="applications" class="section-mech">
+    <div class="section-head-mech">
+      <div class="section-tag">GLOBAL APPLICATIONS</div>
+      <h2 class="section-title">POWERING CRITICAL INFRASTRUCTURE</h2>
+      <p class="section-subtitle">
+        Our diverse product portfolio supports performance-critical rotating machinery across high-growth global sectors.
+      </p>
+    </div>
+
+    <!-- Application Selection Tabs -->
+    <div class="apps-selector-row">
+      <button class="app-tab-btn active" data-app="railway">RAILWAYS & METROS</button>
+      <button class="app-tab-btn" data-app="ev">ELECTRIC VEHICLES (EV)</button>
+      <button class="app-tab-btn" data-app="wind">WIND TURBINES</button>
+      <button class="app-tab-btn" data-app="thermal">THERMAL & HYDRO</button>
+      <button class="app-tab-btn" data-app="datacenters">DATA CENTRES & DG</button>
+      <button class="app-tab-btn" data-app="medical">MEDICAL EQUIPMENT</button>
+      <button class="app-tab-btn" data-app="mining">HEAVY MINING</button>
+    </div>
+
+    <!-- Application Dynamic Display Box -->
+    <div class="app-display-card">
+      <div class="app-image-holder">
+        <img id="appImg" src="assets/Mass-Urban-Transport-min.png" alt="Railways & Mass Transport" />
+      </div>
+      <div>
+        <h3 id="appTitle" class="section-title" style="font-size: 1.8rem; margin-bottom: 14px;">
+          Railways & Mass Urban Transport
+        </h3>
+        <p id="appDesc" style="color: var(--steel-300); font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">
+          Specialized motor core assemblies and precision components for Indian Railways freight & passenger locomotives, Vande Bharat trainsets, and urban mass rapid transit (Metro) propulsion motors.
+        </p>
+        <div id="appSpecsPills" style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <span class="spec-badge highlight">100% Stator Rigidity</span>
+          <span class="spec-badge highlight">Class H Insulation Ready</span>
+          <span class="spec-badge highlight">Vibration Resistance up to 50G</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TECHNICAL RFQ & REAL-TIME CAD BLUEPRINT CONFIGURATOR
+       ========================================================================== -->
+  <section id="rfq" class="section-mech">
+    <div class="section-head-mech">
+      <div class="section-tag">INTERACTIVE CAD TOOL</div>
+      <h2 class="section-title">ENGINEERING SPECIFICATION CONFIGURATOR</h2>
+      <p class="section-subtitle">
+        Configure custom stator and rotor dimensions, material requirements, and assembly criteria to generate a real-time CAD blueprint and dispatch an instant specification to our technical design team.
+      </p>
+    </div>
+
+    <div class="rfq-configurator-wrap">
+      <!-- Left: Form Controls -->
+      <form id="rfqForm" class="config-form-side">
+        <div class="config-row">
+          <label class="config-label">
+            <span>ROTATING EQUIPMENT COMPONENT</span>
+            <span style="color: var(--laser-cyan);">[SELECT TYPE]</span>
+          </label>
+          <select id="configCoreType" class="config-select">
+            <option value="Stator Core Pack">Stator Core Pack (Ready-to-Wind)</option>
+            <option value="Die-Cast Rotor">Die-Cast Rotor Assembly</option>
+            <option value="Complete Core Set">Matched Stator & Rotor Set</option>
+            <option value="Segmented Stator Ring">Segmented Large Generator Ring</option>
+            <option value="Machined Frame Casting">Machined End Shield / Frame Casting</option>
+          </select>
+        </div>
+
+        <div class="config-row">
+          <label class="config-label">
+            <span>OUTER DIAMETER (OD)</span>
+            <span id="configODVal" style="color: var(--laser-cyan);">650 mm</span>
+          </label>
+          <div class="slider-with-number">
+            <input type="range" id="configOD" min="50" max="1300" value="650" step="10" />
+            <div class="slider-num-box">Ø 1300 max</div>
+          </div>
+        </div>
+
+        <div class="config-row">
+          <label class="config-label">
+            <span>AXIAL STACK HEIGHT (H)</span>
+            <span id="configStackVal" style="color: var(--laser-cyan);">800 mm</span>
+          </label>
+          <div class="slider-with-number">
+            <input type="range" id="configStack" min="20" max="1800" value="800" step="20" />
+            <div class="slider-num-box">H 1800 max</div>
+          </div>
+        </div>
+
+        <div class="config-row">
+          <label class="config-label">ELECTRICAL STEEL GRADE</label>
+          <select id="configSteel" class="config-select">
+            <option value="CRNGO M270-50A">CRNGO M270-50A (High Efficiency Traction)</option>
+            <option value="CRNGO M330-50A">CRNGO M330-50A (Industrial Motors)</option>
+            <option value="CRNGO M400-50A">CRNGO M400-50A (General Application)</option>
+            <option value="CRGO M080-23N">CRGO M080-23N (High Permeability Alternator)</option>
+            <option value="Thin-Gauge 0.27mm">Thin-Gauge 0.27mm (EV Automotive High RPM)</option>
+          </select>
+        </div>
+
+        <div class="config-row">
+          <label class="config-label">ASSEMBLY & STACKING METHOD</label>
+          <select id="configAssembly" class="config-select">
+            <option value="Laser Welded">Laser Welded (Low Eddy Current Loss)</option>
+            <option value="Cleat Clamped">Cleat Clamped & Bolted</option>
+            <option value="Hydraulic Riveted">Hydraulic Riveted (Heavy Traction)</option>
+            <option value="Bonded (Backlack)">Self-Bonding Varnish (Backlack)</option>
+          </select>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="config-row">
+            <label class="config-label">CONTACT EMAIL</label>
+            <input type="email" id="configEmail" class="config-input" placeholder="engineer@oem.com" required />
+          </div>
+          <div class="config-row">
+            <label class="config-label">ANNUAL QUANTITY</label>
+            <input type="text" id="configVolume" class="config-input" placeholder="e.g. 5,000 sets/yr" />
+          </div>
+        </div>
+
+        <button type="submit" id="submitRfqBtn" class="cta-rfq-btn" style="width: 100%; justify-content: center; padding: 14px;">
+          TRANSMIT SPECIFICATION TO PITTI DESIGN TEAM
+        </button>
+      </form>
+
+      <!-- Right: Real-Time Dynamic CAD Blueprint -->
+      <div class="cad-spec-blueprint-preview">
+        <div class="blueprint-header-stamp">
+          <div>
+            <span>SPEC: </span><strong id="stampCoreType">Stator Core Pack</strong><br />
+            <span>DIMS: </span><strong id="stampDims">Ø650mm × H800mm</strong>
+          </div>
+          <div>
+            <span>STEEL: </span><strong id="stampSteel">CRNGO M270-50A</strong><br />
+            <span>JOINING: </span><strong id="stampAssembly">Laser Welded</strong>
+          </div>
+        </div>
+
+        <div class="blueprint-svg-canvas">
+          <svg id="blueprintSvg" width="280" height="240" viewBox="0 0 280 240"></svg>
+        </div>
+
+        <!-- Calculated Live Metrics -->
+        <div class="blueprint-math-grid">
+          <div class="math-cell">
+            <span>CALC CORE MASS:</span>
+            <strong id="calcMassVal">1,485 kg</strong>
+          </div>
+          <div class="math-cell">
+            <span>CORE LOSS @ 50Hz:</span>
+            <strong id="calcLossVal">2.70 W/kg</strong>
+          </div>
+          <div class="math-cell">
+            <span>STACK FACTOR:</span>
+            <strong>0.96 (Laminated)</strong>
+          </div>
+          <div class="math-cell">
+            <span>TOLERANCE:</span>
+            <strong>± 0.005 MM</strong>
+          </div>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--steel-500); border-top: 1px solid var(--border-cad); padding-top: 10px; display: flex; justify-content: space-between;">
+          <span>ISO 9001 / IATF 16949 CERTIFIED</span>
+          <span>AUTODESK / STEP COMPATIBLE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BOARD OF DIRECTORS & SENIOR MANAGEMENT DOSSIER
+       ========================================================================== -->
+  <section id="governance" class="section-mech">
+    <div class="section-head-mech">
+      <div class="section-tag">LEADERSHIP DOSSIER</div>
+      <h2 class="section-title">VISIONARY EXECUTIVE LEADERSHIP</h2>
+      <p class="section-subtitle">
+        Led by seasoned industry pioneers and engineering visionaries steering Pitti toward relentless modernization and global leadership.
+      </p>
+    </div>
+
+    <!-- Board of Directors -->
+    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin-bottom: 24px; letter-spacing: 1px;">
+      BOARD OF DIRECTORS
+    </h3>
+    <div class="leaders-grid-mech">
+      <!-- Sharad B Pitti -->
+      <div class="leader-card-cad">
+        <div class="leader-photo-wrap">
+          <img src="assets/Sharad.png" alt="Sharad B Pitti" />
+        </div>
+        <div class="leader-info-pad">
+          <h3 class="leader-name">Sharad B Pitti</h3>
+          <div class="leader-role">FOUNDER & CHAIRMAN</div>
+          <p class="leader-bio">
+            Pioneered and advanced the electrical lamination manufacturing industry in India with over four decades of visionary stewardship.
+          </p>
+        </div>
+      </div>
+
+      <!-- Akshay S Pitti -->
+      <div class="leader-card-cad">
+        <div class="leader-photo-wrap">
+          <img src="assets/Akshay.png" alt="Akshay S Pitti" />
+        </div>
+        <div class="leader-info-pad">
+          <h3 class="leader-name">Akshay S Pitti</h3>
+          <div class="leader-role">MANAGING DIRECTOR & CEO</div>
+          <p class="leader-bio">
+            Spearheaded strategic transformation, modern high-value assembly shifts, the state-of-the-art Aurangabad mega plant, and strategic acquisitions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Y B Sahgal -->
+      <div class="leader-card-cad">
+        <div class="leader-photo-wrap">
+          <img src="assets/YB.png" alt="Y B Sahgal" />
+        </div>
+        <div class="leader-info-pad">
+          <h3 class="leader-name">Y B Sahgal</h3>
+          <div class="leader-role">NON-EXECUTIVE INDEPENDENT DIRECTOR</div>
+          <p class="leader-bio">
+            Seasoned Mechanical Engineer with four decades of rich engineering experience across heavy electrical and manufacturing leadership.
+          </p>
+        </div>
+      </div>
+
+      <!-- Priti Paras Savla -->
+      <div class="leader-card-cad">
+        <div class="leader-photo-wrap">
+          <img src="assets/Priti.png" alt="Priti Paras Savla" />
+        </div>
+        <div class="leader-info-pad">
+          <h3 class="leader-name">Priti Paras Savla</h3>
+          <div class="leader-role">NON-EXECUTIVE INDEPENDENT DIRECTOR</div>
+          <p class="leader-bio">
+            Fellow Chartered Accountant with 20+ years expertise in corporate governance, risk management, ESG advisory, and sustainability.
+          </p>
+        </div>
+      </div>
+
+      <!-- Kemisha Soni -->
+      <div class="leader-card-cad">
+        <div class="leader-photo-wrap">
+          <img src="assets/Kemisha.png" alt="Kemisha Soni" />
+        </div>
+        <div class="leader-info-pad">
+          <h3 class="leader-name">Kemisha Soni</h3>
+          <div class="leader-role">NON-EXECUTIVE INDEPENDENT DIRECTOR</div>
+          <p class="leader-bio">
+            Chartered Accountant with over two decades in auditing, taxation, and international accounting standards representation.
+          </p>
+        </div>
+      </div>
+
+      <!-- Gummalla Vijaya Kumar -->
+      <div class="leader-card-cad">
+        <div class="leader-photo-wrap">
+          <img src="assets/VijayaKumar.png" alt="Gummalla Vijaya Kumar" />
+        </div>
+        <div class="leader-info-pad">
+          <h3 class="leader-name">Gummalla Vijaya Kumar</h3>
+          <div class="leader-role">NON-EXECUTIVE DIRECTOR</div>
+          <p class="leader-bio">
+            Distinguished legal counsel with four decades of experience practicing at the High Court of Telangana and advising major institutions.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Senior Management Team -->
+    <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin: 40px 0 24px 0; letter-spacing: 1px;">
+      SENIOR EXECUTIVE MANAGEMENT
+    </h3>
+    <div class="leaders-grid-mech" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <!-- Sandip Agarwala -->
+      <div class="leader-card-cad">
+        <div class="leader-photo-wrap">
+          <img src="assets/SandipAgarwala.png" alt="Sandip Agarwala" />
+        </div>
+        <div class="leader-info-pad">
+          <h3 class="leader-name">Shri Sandip Agarwala</h3>
+          <div class="leader-role">CHIEF OPERATING OFFICER — MOTOR & GENERATOR</div>
+          <p class="leader-bio">
+            Leads strategic execution and production scaling for Motor & Generator Components division with deep cross-functional marketing and manufacturing insight.
+          </p>
+        </div>
+      </div>
+
+      <!-- Rishab Gupta -->
+      <div class="leader-card-cad">
+        <div class="leader-photo-wrap">
+          <img src="assets/RishabGupta.png" alt="Rishab Gupta" />
+        </div>
+        <div class="leader-info-pad">
+          <h3 class="leader-name">Shri Rishab Gupta</h3>
+          <div class="leader-role">CHIEF OPERATING OFFICER — MACHINED COMPONENTS</div>
+          <p class="leader-bio">
+            Heads machined components and enterprise sourcing, driving factory automation, supply chain resilience, and precision technology adoption.
+          </p>
+        </div>
+      </div>
+
+      <!-- Chaitra Sundaresh -->
+      <div class="leader-card-cad">
+        <div class="leader-photo-wrap">
+          <img src="assets/ChaitraSundaresh.png" alt="Chaitra Sundaresh" />
+        </div>
+        <div class="leader-info-pad">
+          <h3 class="leader-name">Shri Chaitra Sundaresh</h3>
+          <div class="leader-role">DEPUTY CHIEF OPERATING OFFICER</div>
+          <p class="leader-bio">
+            Managing Director of Pitti Industries Private Limited with over two decades in electrical laminations and die-casting manufacturing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACT & REGISTERED CORPORATE OFFICE
+       ========================================================================== -->
+  <section id="contact" class="section-mech">
+    <div class="section-head-mech">
+      <div class="section-tag">COMMUNICATIONS DISPATCH</div>
+      <h2 class="section-title">CONNECT WITH PITTI ENGINEERING</h2>
+      <p class="section-subtitle">
+        Headquartered in Hyderabad with strategic regional offices and global export channels.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+      <!-- Corporate Office -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-cad); padding: 30px; clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);">
+        <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin-bottom: 12px;">REGISTERED & CORPORATE OFFICE</h3>
+        <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--steel-300); line-height: 1.7; margin-bottom: 16px;">
+          6-3-648/401, 4th Floor<br />
+          Padmaja Landmark, Somajiguda<br />
+          Hyderabad - 500082, Telangana, India
+        </p>
+        <div style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--steel-400); display: flex; flex-direction: column; gap: 6px;">
+          <span>TEL: <a href="tel:+914023312774" style="color: var(--laser-cyan); text-decoration: none;">+91 40 2331 2774</a> / 2770</span>
+          <span>EMAIL: <a href="mailto:info@pitti.in" style="color: var(--laser-cyan); text-decoration: none;">info@pitti.in</a></span>
+          <span>CIN: <strong style="color: #fff;">L29253TG1983PLC004141</strong></span>
+        </div>
+      </div>
+
+      <!-- Key Commercial Contacts -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-cad); padding: 30px; clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);">
+        <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: #fff; margin-bottom: 12px;">COMMERCIAL & SOURCING KEY CONTACTS</h3>
+        <div style="display: flex; flex-direction: column; gap: 14px; font-size: 0.88rem;">
+          <div>
+            <strong style="color: #fff;">Mr. BP Jayaram</strong> — Sr. General Manager (Marketing)<br />
+            <span style="font-family: var(--font-mono); color: var(--laser-cyan);">marketing@pitti.in • jayaram@pitti.in • +91 40 2339 6826</span>
+          </div>
+          <div>
+            <strong style="color: #fff;">Ms. Mary Monica Braganza</strong> — Company Secretary & Compliance Officer<br />
+            <span style="font-family: var(--font-mono); color: var(--laser-cyan);">shares@pitti.in • monica.m@pitti.in • +91 40 2339 6826</span>
+          </div>
+          <div>
+            <strong style="color: #fff;">Ms. RVS Shilpa</strong> — Sr. Manager (Purchase)<br />
+            <span style="font-family: var(--font-mono); color: var(--laser-cyan);">shilpa.rvs@pitti.in • +91 40 2339 6826</span>
+          </div>
+          <div>
+            <strong style="color: #fff;">Mr. Ramesh Akula</strong> — Sr. Manager (Raw Materials - Purchase)<br />
+            <span style="font-family: var(--font-mono); color: var(--laser-cyan);">ramesh.akula@pitti.in • +91 80082 00424</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MECHANICAL FOOTER - Blueprint Terminal Registry
+       ========================================================================== -->
+  <footer class="footer-mech">
+    <div class="footer-top-grid">
+      <div class="footer-col">
+        <span class="brand-title" style="font-size: 1.4rem;">PITTI <span>ENGINEERING</span></span>
+        <p style="font-size: 0.85rem; color: var(--steel-400); line-height: 1.7; margin-top: 8px;">
+          Pitti Engineering Limited (formerly Pitti Laminations Limited) is one of India's largest manufacturers and exporters of electrical steel laminations, motor cores, sub-assemblies, and precision-machined castings.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">PRODUCTS</div>
+        <ul class="footer-links-list">
+          <li><a href="#products">Electrical Steel Laminations</a></li>
+          <li><a href="#products">Motor Cores (Up to 10 MT)</a></li>
+          <li><a href="#products">Subassemblies (Ready-to-Wind)</a></li>
+          <li><a href="#products">Die-Cast Rotors (Up to 180 kg)</a></li>
+          <li><a href="#products">Machined Castings</a></li>
+          <li><a href="#products">High-Precision Press Tools</a></li>
+          <li><a href="#products">Machined Components & Shafts</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">FACILITIES</div>
+        <ul class="footer-links-list">
+          <li><a href="#manufacturing">Kothur Plant (Telangana)</a></li>
+          <li><a href="#manufacturing">Nandigaon Plant (Telangana)</a></li>
+          <li><a href="#manufacturing">Macharam Foundry (Telangana)</a></li>
+          <li><a href="#manufacturing">Chhatrapati Sambhajinagar Mega Factory</a></li>
+          <li><a href="#manufacturing">Pitti Industries (Tumakuru)</a></li>
+          <li><a href="#manufacturing">Dakshin Foundry (Hoskote)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">REGISTRAR & TRANSFER</div>
+        <p style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--steel-400); line-height: 1.6;">
+          MUFG Intime India Private Limited<br />
+          Unit: Pitti Engineering Limited<br />
+          C-101, Embassy 247, L.B.S. Marg<br />
+          Vikhroli (West), Mumbai - 400083
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>© 2026 PITTI ENGINEERING LIMITED. ALL RIGHTS RESERVED.</div>
+      <div>CIN: L29253TG1983PLC004141 • LISTED ON BSE & NSE</div>
+      <div>PRECISION CAD ENGINE • MECHANICAL DESIGN SYSTEM</div>
+    </div>
+  </footer>
+
+  <!-- Mechanical Engine Script -->
+  <script src="mechanical-engine.js"></script>
+</body>
+</html>
